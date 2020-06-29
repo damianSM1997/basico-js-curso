@@ -645,14 +645,12 @@ console.log(`Este es es: ${mes}`);
 //
 //console.log(automovil);
 
-const ciudades = ['Longre', 'New York', 'Madril', 'Paris'];
-const ordenes = new Set([123, 231, 132, 102]);
-const datos = new Map();
-
-datos.set('nombre', 'juan');
-datos.set('profecion', 'desarollador web');
-
-
+//const ciudades = ['Longre', 'New York', 'Madril', 'Paris'];
+//const ordenes = new Set([123, 231, 132, 102]);
+//const datos = new Map();
+//
+//datos.set('nombre', 'juan');
+//datos.set('profecion', 'desarollador web');
 //values
 //for (let entrada of ciudades) {
 //    console.log(entrada);
@@ -725,3 +723,389 @@ datos.set('profecion', 'desarollador web');
 
 
 //console.log('Globales: ' + a, b, c);
+
+
+//la parala this es la forma en la uqe puedes
+//acceder a los atributos de un objeto
+
+//const cliente = {
+//    nombre: 'damian',
+//    saldo: 100,
+//    tipoCliente: function() {
+//        let tipo;
+//        if (this.saldo > 1000) {
+//            tipo = 'Gold';
+//        } else if (this.saldo > 500) {
+//            tipo = 'Platino';
+//        } else {
+//            tipo = 'Normal';
+//        }
+//        return tipo;
+//    }
+//}
+//
+//// si es metodo se tiene que poner los () en la funcion
+//console.log(cliente.saldo);
+
+
+//metodo alternativo
+
+//function Cliente(nombre, saldo) {
+//    this.nombre = nombre;
+//    this.saldo = saldo;
+//    this.tipoCliente = function() {
+//        let tipo;
+//        if (this.saldo > 1000) {
+//            tipo = 'Gold';
+//        } else if (this.saldo > 500) {
+//            tipo = 'Platino';
+//        } else {
+//            tipo = 'Normal';
+//        }
+//        return tipo;
+//    }
+//}
+
+//const persona = new Cliente('pedro', 20000);
+//const persona2 = new Cliente('karen', 1000);
+//
+//console.log(persona.tipoCliente());
+//console.log(persona2.tipoCliente());
+
+//const nombre1 = 'Pedro';
+//const nombre2 = new String('Pedro');
+
+//console.log(typeof nombre2);
+
+//if (nombre1 === nombre2) {
+//    console.log('si, iguales');
+//
+//} else {
+//    console.log('no! son diferentes');
+//}
+
+
+//const numero1 = 20
+//const numero2 = new Number(20);
+
+
+//console.log(numero1);
+//console.log(numero2);
+
+//const funcion1 = function(a, b) {
+//    return a + b;
+//}
+//
+//const funcion2 = new Function('a', 'b', 'return a + b');
+//
+//console.log(funcion1(2, 3));
+//console.log(funcion2(1, 4));
+
+//const persona1 = {
+//    nombre: 'Damian'
+//}
+//
+//const persona2 = new Object({ nombre: 'Damian' });
+
+
+//const arrego1 = [1, 2, 3, 4];
+//const arrego2 = new Array(1, 2, 3, 4);
+//console.log(arrego1);
+//console.log(arrego2);
+
+//todos estos tienen su form de expresarlos como objetos
+// la siguiente leccion sera para los prototipo
+
+
+//function Cliente(nombre, saldo) {
+//    this.nombre = nombre;
+//    this.saldo = saldo;
+//
+//}
+//
+////creando un prototipo
+//Cliente.prototype.tipoCliente = function() {
+//    let tipo;
+//    if (this.saldo > 1000) {
+//        tipo = 'Gold';
+//    } else if (this.saldo > 500) {
+//        tipo = 'Platino';
+//    } else {
+//        tipo = 'Normal';
+//    }
+//    return tipo;
+//}
+
+//creando otro prototipo que imprime saldo y nombre
+//Cliente.prototype.nombreClienteSaldo = function() {
+//    return `Nombre: ${this.nombre}, tu saldo es de : ${this.saldo}, Tipo de cliente: ${this.tipoCliente()}`
+//}
+
+//creando otro portotipo retirar saldo
+//Cliente.prototype.RetirarSaldo = function(retiro) {
+//    return this.saldo -= retiro;
+//
+//}
+
+
+//const cliente1 = new Cliente('Damian', 20000);
+//console.log(cliente1);
+//
+////banca para empresas
+//function Empresa(nombre, saldo, telefono, tipo) {
+//    //la linea de abajo es herencia
+//    Cliente.call(this, nombre, saldo);
+//    this.telefono = telefono;
+//    this.tipo = tipo;
+//}
+//
+//Empresa.prototype = Object.create(Cliente.prototype);
+//const empresa = new Empresa('Papelitos', 50000, 3130, 'Papeleria');
+//
+//console.log(empresa.nombreClienteSaldo());
+
+
+//const Cliente = {
+//    imprimirSaldo: function() {
+//        return `Hola ${this.nombre} tu saldo es ${this.saldo}`
+//    },
+//    retirarSaldo: function(retiro) {
+//        return this.saldo -= retiro;
+//    }
+//}
+//const gaby = Object.create(Cliente);
+//gaby.nombre = 'Gaby';
+//gaby.saldo = 1000;
+//gaby.retirarSaldo(200);
+//console.log(gaby.imprimirSaldo());
+
+
+
+//class Cliente {
+//    constructor(nombre, apellido, saldo) {
+//        this.nombre = nombre;
+//
+//        this.saldo = saldo;
+//    }
+//
+//    imprimirSaldo() {
+//            return `Hola ${this.nombre}, tu saldo es de: ${this.saldo}`
+//        }
+//tipoCLiente() {
+//    let tipo;
+//    if (this.saldo > 10000) {
+//        tipo = 'Gold';
+//    } else if (this.saldo > 5000) {
+//        tipo = 'Platino';
+//    } else {
+//        tipo = 'Normal'
+//    }
+//    return `El cliente es: ${tipo}`;
+//}
+
+//    retirarSaldo(retiro) {
+//        return this.saldo -= retiro;
+//    }
+//    static bienvenido() {
+//        return `Hola bienvenido al cajero C:`;
+//    }
+//
+//    bienvenido2() {
+//        return `Hola ${this.nombre}, bienvenido al cajero C:`;
+//    }
+//}
+
+//const damian = new Cliente('Damian', 'Susano', 6000);
+//damian.retirarSaldo(1000)
+//console.log(Cliente.bienvenido());
+//console.log(damian.bienvenido2());
+
+
+
+//class Cliente {
+//    constructor(nombre, saldo) {
+//        this.nombre = nombre;
+//        this.saldo = saldo;
+//    }
+//
+//    imprimirSaldo() {
+//        return `Hola ${this.nombre}, tu saldo es de: ${this.saldo}`
+//    }
+//
+//    static bienvenido() {
+//        return `Hola bienvenido al cajero C:`;
+//    }
+//}
+//
+//class Empresa extends Cliente {
+//    constructor(nombre, saldo, telefono, tipo) {
+//        //va al constructor padre
+//        super(nombre, saldo);
+//        //no estan en el cosntructor padre
+//        this.telefono = telefono;
+//        this.tipo = tipo;
+//    }
+//}
+//
+//const papelitos = new Empresa('Papelitos', 200000, 3130, 'Papeleria');
+//
+//console.log(papelitos.imprimirSaldo());
+
+//callback en el forEach
+
+//const ciudades = ['Londres', 'New York', 'Madril', 'Paris', 'Viena'];
+//inline callback
+//ciudades.forEach(function(ciudad) {
+//    console.log(ciudad);
+//
+//})
+
+// con funcion definida
+//function callback(ciudad) {
+//console.log(ciudad);
+//}
+// el nombre de la variable uqe recivira los parametros no importa
+// siempre i cuando cicha variable se manipule con el mismo nombre
+// dentro de la funcion
+//ciudades.forEach(callback);
+//const paises = ['Francia', 'España', 'Protugal', 'Australia', 'Inglaterra', 'Irlanda'];
+//
+////se agrega un nuevo pais despues de 2 segundos
+//
+//function nuevoPais(pais, callback) {
+//    setTimeout(function() {
+//        paises.push(pais);
+//        callback();
+//        //mostrarPaises();
+//    }, 2000)
+//    // el callback resibe una funcion pero el valor de alemania recibira el nuevo elemento
+//    // y lo agrega al areglo
+//
+//}
+//// los paises se muestran despues de un segundo
+//function mostrarPaises() {
+//    setTimeout(function() {
+//        let html = '';
+//        paises.forEach(function(pais) {
+//            html += `<li>${pais}</li>`
+//        });
+//
+//        document.getElementById('app').innerHTML = html;
+//    }, 1000)
+//}
+////agregar nuevo pais 
+//nuevoPais('Alemania', mostrarPaises);
+//
+////mostrar los paises
+//
+//mostrarPaises();
+
+// se le pasa 2 parametros
+//const esperando = new Promise(function(resolve, reject) {
+//    setTimeout(function() {
+//        resolve('Se ejecuto');
+//    }, 5000)
+//});
+//
+//
+//esperando.then(function(cualquierCOsa) {
+//
+//    console.log(cualquierCOsa);
+//});
+
+//const aplicarDescuento = new Promise(function(resolve, reject) {
+//    const descuento = true;
+//
+//    if (descuento) {
+//        resolve('descuento aplicado');
+//    } else {
+//        reject('no se puede aplicar el descuento');
+//    }
+//});
+//
+////recordatorio para ocupar el reject es fundamental poner el .catch de lo contrario
+//// no se podra aplicar
+//aplicarDescuento.then(function(mensaje) {
+//    console.log(mensaje);
+//}).catch(function(error) {
+//    console.log(error);
+//}
+
+//funcion
+
+//let aprendiendo;
+//
+//aprendiendo = function() {
+//    console.log('aprendiendo js');
+//}
+//
+//aprendiendo = () => {
+//        console.log('aprendiendo js');
+//    }
+//funcion de una linea no requiere de llaves
+
+//aprendiendo = () => console.log('aprendiendo');
+//retorna valor
+//aprendiendo = () => 'Aprendiendo xd'
+//retorna objeto
+//aprendiendo = () => ({ aprendiendo: 'Aprendiendo xd' });
+
+//pasar parametros
+
+//aprendiendo = (tecnologia) => console.log(`Aprendiendo xd ${tecnologia}`);
+//pasando un parametro
+//aprendiendo = tecnologia => console.log(`Aprendiendo 1 xd ${tecnologia}`);
+//2 parametros
+//aprendiendo = (tecnologia1, tecnologia2) => console.log(`Aprendiendo xd ${tecnologia1} y tambien ${tecnologia2}`);
+
+//const productos = ['Disco', 'Camisa', 'Guitarra'];
+//
+//const letrasdProducto = productos.map(function(producto) {
+//    return producto.length;
+//});
+//
+//const letrasdProducto = productos.map(producto => producto.length);
+//console.log(letrasdProducto);
+
+//productos.forEach(producto => console.log(producto));
+
+
+//async y await
+
+//async function obtenerCLientes() {
+//    //crear un promise
+//    const clientes = new Promise((resolve, reject) => {
+//        setTimeout(() => {
+//            resolve(`Clientes descargados...`)
+//
+//        }, 2000)
+//    });
+//    //error o no ...
+//    const error = false;
+//
+//    if (!error) {
+//        const respuesta = await clientes;
+//        return respuesta;
+//    } else {
+//        await Promise.reject('valio pistola');
+//    }
+//
+//}
+////.then esta asociado al resolve
+//obtenerCLientes()
+//    .then(res => console.log(res))
+//    .catch(e => console.log(e))
+
+
+async function leerTodos() {
+    //esperar la rrespuesta
+    const respuesta = await fetch('https://jsonplaceholder.typicode.com/todos');
+
+    // procede cuando la respuesta este hechA
+    const datos = await respuesta.json();
+
+    return datos;
+}
+leerTodos()
+    .then(usuarios1 => console.log(usuarios1))
+    .catch(e => console.log(e, 'valio pistola'))
